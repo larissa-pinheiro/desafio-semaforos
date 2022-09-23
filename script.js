@@ -1,5 +1,5 @@
 const button = document.getElementById("button");
-let counter = 0;
+let controller = 0;
 
 function redLight(red) {
   var elements = document.getElementsByClassName(red);
@@ -61,8 +61,8 @@ function darkGreenLight(green) {
 }
 
 function handleChangeColor() {
-  counter = counter + 1;
-  if (counter === 1) {
+  controller = controller + 1;
+  if (controller === 1) {
     redLight("red1");
     darkYellowLight("yellow1");
     darkGreenLight("green1");
@@ -70,12 +70,12 @@ function handleChangeColor() {
     darkYellowLight("yellow");
     darkRedLight("red");
   }
-  if (counter === 2) {
+  if (controller === 2) {
     yellowLight("yellow");
     darkGreenLight("green");
     darkRedLight("red");
   }
-  if (counter === 3) {
+  if (controller === 3) {
     redLight("red");
     darkGreenLight("green");
     darkYellowLight("yellow");
@@ -83,11 +83,11 @@ function handleChangeColor() {
     darkRedLight("red1");
     darkYellowLight("yellow1");
   }
-  if (counter === 4) {
+  if (controller === 4) {
     yellowLight("yellow1");
     darkRedLight("red1");
     darkGreenLight("green1");
-    counter = 0;
+    controller = 0;
   }
 }
 
