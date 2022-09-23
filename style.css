@@ -4,7 +4,7 @@ html {
 
 body {
   background-color: rgb(236, 233, 233);
-  max-height: 100vh;
+  height: 100%;
   padding: 50px;
 
   display: flex;
