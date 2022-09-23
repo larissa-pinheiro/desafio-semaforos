@@ -1,7 +1,7 @@
-const btn = document.getElementById("btn");
-let sem = 0;
+const button = document.getElementById("button");
+let counter = 0;
 
-function vermelho(red) {
+function redLight(red) {
   var elements = document.getElementsByClassName(red);
   for (var i = 0, length = elements.length; i < length; i++) {
     if (elements[i].textContent == "") {
@@ -11,7 +11,7 @@ function vermelho(red) {
   }
 }
 
-function amarelo(yellow) {
+function yellowLight(yellow) {
   var elements = document.getElementsByClassName(yellow);
   for (var i = 0, length = elements.length; i < length; i++) {
     if (elements[i].textContent == "") {
@@ -21,7 +21,7 @@ function amarelo(yellow) {
   }
 }
 
-function verde(green) {
+function greenLight(green) {
   var elements = document.getElementsByClassName(green);
   for (var i = 0, length = elements.length; i < length; i++) {
     if (elements[i].textContent == "") {
@@ -30,7 +30,7 @@ function verde(green) {
     }
   }
 }
-function vermelhoEscuro(red) {
+function darkRedLight(red) {
   var elements = document.getElementsByClassName(red);
   for (var i = 0, length = elements.length; i < length; i++) {
     if (elements[i].textContent == "") {
@@ -40,7 +40,7 @@ function vermelhoEscuro(red) {
   }
 }
 
-function amareloEscuro(yellow) {
+function darkYellowLight(yellow) {
   var elements = document.getElementsByClassName(yellow);
   for (var i = 0, length = elements.length; i < length; i++) {
     if (elements[i].textContent == "") {
@@ -50,7 +50,7 @@ function amareloEscuro(yellow) {
   }
 }
 
-function verdeEscuro(green) {
+function darkGreenLight(green) {
   var elements = document.getElementsByClassName(green);
   for (var i = 0, length = elements.length; i < length; i++) {
     if (elements[i].textContent == "") {
@@ -60,37 +60,35 @@ function verdeEscuro(green) {
   }
 }
 
-function troca() {
-  sem = sem + 1;
-  if (sem == 1) {
-    vermelho("red1");
-    amareloEscuro("yellow1");
-    verdeEscuro("green1");
-    verde("green");
-    amareloEscuro("yellow");
-    vermelhoEscuro("red");
+function handleChangeColor() {
+  counter = counter + 1;
+  if (counter === 1) {
+    redLight("red1");
+    darkYellowLight("yellow1");
+    darkGreenLight("green1");
+    greenLight("green");
+    darkYellowLight("yellow");
+    darkRedLight("red");
   }
-  if (sem == 2) {
-    amarelo("yellow");
-    verdeEscuro("green");
-    vermelhoEscuro("red");
+  if (counter === 2) {
+    yellowLight("yellow");
+    darkGreenLight("green");
+    darkRedLight("red");
   }
-  if (sem == 3) {
-    vermelho("red");
-    verdeEscuro("green");
-    amareloEscuro("yellow");
-    verde("green1");
-    vermelhoEscuro("red1");
-    amareloEscuro("yellow1");
+  if (counter === 3) {
+    redLight("red");
+    darkGreenLight("green");
+    darkYellowLight("yellow");
+    greenLight("green1");
+    darkRedLight("red1");
+    darkYellowLight("yellow1");
   }
-  if (sem == 4) {
-    amarelo("yellow1");
-    vermelhoEscuro("red1");
-    verdeEscuro("green1");
-  }
-  if (sem == 4) {
-    sem = 0;
+  if (counter === 4) {
+    yellowLight("yellow1");
+    darkRedLight("red1");
+    darkGreenLight("green1");
+    counter = 0;
   }
 }
 
-btn.addEventListener("click", troca);
+button.addEventListener("click", handleChangeColor);
